@@ -1,5 +1,8 @@
 import { test } from "@playwright/test";
 import { LoginPage } from "../pages/loginpage";
+import { InventoryPage } from "../pages/inventory";
+
+
 
 test.beforeEach(async ({ page }) => {
   //Should login with valid credentials
@@ -9,5 +12,9 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("SauceDemo Purchase Flow Test", () => {
-  test("Login Flow", async ({ page }) => {});
+  test("Purchase Flow", async ({ page }) => {
+    const Checkout = new InventoryPage(page);
+    await Checkout.purchase("Sauce Labs Backpack", "Atiar", "Rahman", "1214");
+  });
+
 });
