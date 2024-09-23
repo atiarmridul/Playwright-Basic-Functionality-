@@ -1,8 +1,6 @@
 import { test } from "@playwright/test";
 import { LoginPage } from "../pages/loginpage";
 
-
-
 test.beforeEach(async ({ page }) => {
   //Should login with valid credentials
   const Login = new LoginPage(page);
@@ -11,7 +9,5 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("SauceDemo Purchase Flow Test", () => {
-  test("Login Flow", async ({ page }) => {
-
-  });
+  test("Login Flow", async ({ page }) => {});
 });
