@@ -13,6 +13,7 @@ test.describe("SauceDemo Purchase Flow Test", () => {
   test("Sorting", async ({ page }) => {
     const Sorting = new LandingPage(page);
     await Sorting.productSorter("Name (Z to A)");
-    await Sorting.getProduct();
+    await Sorting.storeProducts();
+    await Sorting.verifyProductSorting();
   });
 });
