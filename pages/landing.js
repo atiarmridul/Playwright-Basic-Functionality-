@@ -1,6 +1,9 @@
 import { expect } from "@playwright/test";
 
 const products = [];
+const price = []
+
+
 export class LandingPage {
   constructor(page) {
     this.page = page;
@@ -13,7 +16,6 @@ export class LandingPage {
 
   async storeProducts() {
     const productElements = await this.page.$$(".inventory_item_name");
-
     for (const productElement of productElements) {
       const productName = await productElement.innerText();
       products.push(productName);
@@ -22,7 +24,26 @@ export class LandingPage {
 
   async verifyProductSorting() {
     const productDSCE = products.reverse();
-    //verifing that product shorting is working
+    //Verify the sorting order
     expect(products[0]).toEqual(productDSCE[0]);
   }
+
+
+  async storePrices() {
+    const productElements = await this.page.$$(".inventory-item-price");
+    for (const productElement of productElements) {
+      const productPrice = await productElement.innerText();
+      price.push(productPrice);
+    }
+  }
+
+  async verifyPriceSorting() {
+    const priceDSCE = price.reverse();
+    //Verify the sorting order
+    expect(products).toEqual(priceDSCE);
+  }
+
+  
+
+
 }

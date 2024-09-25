@@ -10,10 +10,20 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("SauceDemo Purchase Flow Test", () => {
-  test("Sorting", async ({ page }) => {
-    const Sorting = new LandingPage(page);
-    await Sorting.productSorter("Name (Z to A)");
-    await Sorting.storeProducts();
-    await Sorting.verifyProductSorting();
+  test("Sorting by Name", async ({ page }) => {
+    const SortingByName = new LandingPage(page);
+    await SortingByName.productSorter("Name (Z to A)");
+    await SortingByName.storeProducts();
+    await SortingByName.verifyProductSorting();
   });
+  
+
+  test("Sorting By Price", async ({ page }) => {
+    const SortingByPrice = new LandingPage(page);
+    await SortingByPrice.productSorter("Price (high to low)");
+    await SortingByPrice.storePrices();
+    await SortingByPrice.verifyPriceSorting();
+  });  
+
+
 });
