@@ -12,10 +12,7 @@ test.beforeEach(async ({ page }) => {
 test.describe("SauceDemo Purchase Flow Test", () => {
   test("Sorting", async ({ page }) => {
     const Sorting = new LandingPage(page);
-    await Sorting.sorting("Name (A to Z)");
-    await Sorting.insertIntoArray();
-    await Sorting.sorting("Name (Z to A)");
+    await Sorting.productSorter("Name (Z to A)");
+    await Sorting.getProduct();
   });
 });
-
-
