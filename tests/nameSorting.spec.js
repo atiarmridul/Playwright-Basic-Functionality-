@@ -1,7 +1,6 @@
 import { test } from "@playwright/test";
 import { LoginPage } from "../pages/loginpage";
-import { InventoryPage } from "../pages/inventory";
-
+import { LandingPage } from "../pages/landing";
 
 test.beforeEach(async ({ page }) => {
   //Should login with valid credentials
@@ -11,9 +10,12 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("SauceDemo Purchase Flow Test", () => {
-  test("Checkout", async ({ page }) => {
-    const Checkout = new InventoryPage(page);
-    await Checkout.addtocart();
-    await Checkout.checkout("Md.Atiar", "Rahman", "123");
+  test("Sorting", async ({ page }) => {
+    const Sorting = new LandingPage(page);
+    await Sorting.sorting("Name (A to Z)");
+    await Sorting.insertIntoArray();
+    await Sorting.sorting("Name (Z to A)");
   });
 });
+
+
