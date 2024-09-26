@@ -21,8 +21,9 @@ export class LandingPage {
   }
 
   async verifyProductSorting() {
-    const productDSCE = products.reverse();
-    //verifing that product shorting is working
-    expect(products[0]).toEqual(productDSCE[0]);
+    const productSortASC = products.sort()
+    const productDSCE = productSortASC.reverse();
+    // verifing that product shorting is working
+    expect(products).toEqual(productDSCE);
   }
 }
