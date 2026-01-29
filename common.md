@@ -16,6 +16,8 @@
 - TS sample test in `e2e/` is Playwright starter content.
 - `playwright.config.js` points to `./tests`.
 - `playwright.config.ts` points to `./e2e`.
+- JS config sets `testIdAttribute` to `data-test` and runs `chromium` headless.
+- TS config runs `chromium`, `firefox`, and `webkit`.
 
 ## Page Object Summary
 - `LoginPage`: navigates to SauceDemo and logs in with credentials.
@@ -34,3 +36,4 @@
 
 ## Notes
 - `package.json` has no scripts; tests are run via `npx`.
+- Reports output to `playwright-report/` by default.
